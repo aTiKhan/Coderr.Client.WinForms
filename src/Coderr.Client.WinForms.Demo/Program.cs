@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Coderr.Client;
 
-namespace codeRR.Client.WinForms.Demo
+namespace Coderr.Client.WinForms.Demo
 {
     internal static class Program
     {
@@ -12,10 +13,10 @@ namespace codeRR.Client.WinForms.Demo
         private static void Main()
         {
             // replace with your own settings
-            var uri = new Uri("http://localhost:50473/");
+            var uri = new Uri("http://localhost:60473/");
             Err.Configuration.Credentials(uri,
-                "5f219f356daa40b3b31dfc67514df6d6",
-                "22612e4444f347d1bb3d841d64c9750a");
+                "5a617e0773b94284bef33940e4bc8384",
+                "3fab63fb846c4dd289f67b0b3340fefc");
 
             // to catch unhandled exceptions
             Err.Configuration.CatchWinFormsExceptions();
@@ -23,9 +24,14 @@ namespace codeRR.Client.WinForms.Demo
             // different types of available options.
             Err.Configuration.TakeScreenshotOfActiveFormOnly();
             //Err.Configuration.TakeScreenshots();
+
+            // Once of these must be active to show the error form
+            //=============
             Err.Configuration.UserInteraction.AskUserForDetails = true;
-            Err.Configuration.UserInteraction.AskUserForPermission = true;
-            Err.Configuration.UserInteraction.AskForEmailAddress = true;
+            //Err.Configuration.UserInteraction.AskUserForPermission = true;
+            //Err.Configuration.UserInteraction.AskForEmailAddress = true;
+
+            Err.Configuration.SetErrorForm(context => new CustomErrorDialog(context));
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

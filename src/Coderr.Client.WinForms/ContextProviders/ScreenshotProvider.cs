@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using codeRR.Client.ContextProviders;
-using codeRR.Client.Contracts;
-using codeRR.Client.Reporters;
+using Coderr.Client.ContextCollections;
+using Coderr.Client.Contracts;
+using Coderr.Client.Reporters;
 
-namespace codeRR.Client.WinForms.ContextProviders
+namespace Coderr.Client.WinForms.ContextProviders
 {
     /// <summary>
     ///     Can capture a screen-shot of all open forms
     /// </summary>
-    public class ScreenshotProvider : IContextInfoProvider
+    public class ScreenshotProvider : IContextCollectionProvider
     {
         /// <summary>
         ///     "Screenshots"
